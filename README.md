@@ -1,41 +1,41 @@
 # SoM-EMOA
 
-SoM-EMOA 是一个面向 **Many-objective Cover Problem (MaCP)** 的进化算法实现，适配 PlatEMO 框架。
+SoM-EMOA is an evolutionary algorithm implementation for the **Many-objective Cover Problem (MaCP)**, designed for the PlatEMO framework.
 
-- 论文链接：<https://arxiv.org/abs/2601.06387>
-- 实现形式：MATLAB / PlatEMO 算法插件
+- Paper: <https://arxiv.org/abs/2601.06387>
+- Implementation: MATLAB / PlatEMO algorithm plugin
 
-## 算法简介
+## Algorithm Overview
 
-SoM-EMOA 通过维护种群与辅助归档（archive）协同进化，在多目标覆盖问题中平衡收敛性与多目标性能。算法流程包括：
+SoM-EMOA co-evolves a population and an auxiliary archive to balance convergence and multi-objective performance on MaCP tasks. The core workflow is:
 
-1. 初始化种群并构建初始 archive；
-2. 基于当前种群与 archive 进行交配选择；
-3. 生成子代并更新 archive；
-4. 通过环境选择更新种群；
-5. 重复上述过程直至终止条件满足。
+1. Initialize the population and construct the initial archive.
+2. Perform mating selection based on the current population and archive.
+3. Generate offspring and update the archive.
+4. Apply environmental selection to update the population.
+5. Repeat until the stopping criterion is met.
 
-## 仓库结构
+## Repository Structure
 
 ```text
 SoMEMOA/
-├── SoMEMOA.m          # 算法主入口（PlatEMO classdef）
+├── SoMEMOA.m          # Main algorithm entry (PlatEMO classdef)
 ├── InitializeArchive.m
 ├── MatingSelection.m
 ├── Reduce.m
 └── UpdateArchive.m
 ```
 
-## 参数说明
+## Parameter
 
-- `k`（默认值 `3`）：每轮主循环中生成的子代数量。
+- `k` (default: `3`): number of offspring generated in each main iteration.
 
-## 在 PlatEMO 中使用
+## Usage in PlatEMO
 
-1. 将 `SoMEMOA/` 放置到 PlatEMO 的算法目录（或加入 MATLAB 路径）。
-2. 在 PlatEMO 中选择算法 `SoMEMOA`。
-3. 根据任务设置问题、决策变量编码和停止条件后运行。
+1. Place `SoMEMOA/` under PlatEMO's algorithm directory (or add it to the MATLAB path).
+2. Select `SoMEMOA` as the algorithm in PlatEMO.
+3. Configure the problem, decision-variable encoding, and stopping condition, then run.
 
-## 引用
+## Citation
 
-如果本实现对你的研究有帮助，请引用原论文（arXiv:2601.06387）。
+If this implementation is useful for your research, please cite the original paper (arXiv:2601.06387).
